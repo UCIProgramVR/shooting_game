@@ -5,12 +5,13 @@ using UnityEngine;
 public class GunController : MonoBehaviour {
 
 	public bool isFiring;
-
+	//public GameObject expEffect;
 	public BulletController bullet;
 	public float bulletSpeed;
 	public float timeBetweenShots;
 	public float shotCounter;
-
+	//public ImageController image;
+	public GameObject explosionPrefab;
 	public Transform firePoint;
 	private AudioSource GunShot;
 	// Use this for initialization
@@ -26,7 +27,10 @@ public class GunController : MonoBehaviour {
 			if(shotCounter <= 0){
 				shotCounter = timeBetweenShots;
 				GunShot.Play();
+				Instantiate(explosionPrefab,firePoint.position,Quaternion.identity);
+				//Instantiate(expEffect, firePoint.position,firePoint.rotation);
 				BulletController newBullet = Instantiate(bullet,firePoint.position,firePoint.rotation) as BulletController;
+
 				newBullet.speed = bulletSpeed;
 			}
 

@@ -6,6 +6,7 @@ using UnityEngine;
 //GunShot = GetComponent<AudioSource>();
 public class BulletController : MonoBehaviour {
 	public float speed;
+	//public GameObject expEffect;
 	// Use this for initialization
 	void Start () {
 
